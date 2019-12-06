@@ -24,7 +24,14 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      timeout-minutes: 10
+      
+  sonarCloudTrigger:
+    name: SonarCloud Trigger
+    runs-on: ubuntu-latest
+    steps:
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v1.1
+      timeout-minutes: 10
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
