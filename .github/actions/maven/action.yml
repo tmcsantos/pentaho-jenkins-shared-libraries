@@ -1,0 +1,14 @@
+name: 'Maven Config for Pentaho'
+description: 'Maven with settings for pentaho artifact resolution'
+inputs:
+  args:
+    description: 'The maven arguments'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - mvn
+    - --batch-mode
+    - --show-version
+    - ${{ inputs.args }}
