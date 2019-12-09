@@ -22,8 +22,10 @@ jobs:
         with:
           args: package
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v1.1
+        uses: ./.github/actions/maven
         timeout-minutes: 10
         if: success()
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: sonar:sonar
