@@ -1,4 +1,4 @@
-name: Pentaho Jenkins Shared Library CI
+name: Pentaho Jenkins Shared Library
 
 on:
   push:
