@@ -27,7 +27,7 @@ jobs:
         uses: ./.github/actions/maven
         timeout-minutes: 10
         with:
-          args: package --file pom.xml
+          args: verify sonar:sonar
 #      - name: SonarCloud Scan
 #        uses: ./.github/actions/maven
 #        timeout-minutes: 10
