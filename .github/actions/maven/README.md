@@ -10,6 +10,6 @@ A maven action with settings for Pentaho artifact resolution.
 
 ## Example usage
 
-uses: tmcsantos/pentaho-jenkins-shared-libraries/.github/actions/maven@master
+uses: ./.github/actions/maven
 with:
-  args: '-v'
+  args: package --file pom.xml
