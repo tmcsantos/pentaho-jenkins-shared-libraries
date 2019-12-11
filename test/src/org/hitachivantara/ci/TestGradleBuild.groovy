@@ -58,7 +58,7 @@ class TestGradleBuild extends BasePipelineSpecification {
       gradleBuild()
 
     then:
-      shellRule.cmds[0] != expected
+      shellRule.cmds[0] == expected
 
     where:
       jobData                                                              || expected
