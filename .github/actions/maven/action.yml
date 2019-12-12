@@ -1,5 +1,5 @@
-name: 'Maven Config for Pentaho'
-description: 'A custom maven environment for Pentaho artifact builds'
+name: 'Maven Build for Pentaho'
+description: 'A custom maven environment for Pentaho artifact resolution'
 inputs:
   args:
     description: 'The maven arguments'

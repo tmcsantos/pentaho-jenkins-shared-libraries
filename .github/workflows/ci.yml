@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - github-actions
-  pull_request:
-    branches:
-      - github-actions
 
 jobs:
   test:
@@ -16,22 +13,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Cache
+
+      - name: Cache Dependencies
         uses: actions/cache@v1
         with:
           path: .m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+
       - name: Build
         uses: ./.github/actions/maven
-        timeout-minutes: 10
         with:
           args: package
+
+# Not working with cache enabled ??? getting permission denied
+## [error]The template is not valid. Access to the path '/home/runner/work/pentaho-jenkins-shared-libraries/pentaho-jenkins-shared-libraries/.sonar/cache/b85e79af43c5fd9d871f67c00ce3c18d/sonar-java-plugin.jar_unzip' is denied.,Permission denied
+# Also sonar cloud doesn't support groovy so is just a waist of time !
 #      - name: SonarCloud Scan
 #        uses: ./.github/actions/maven
-#        timeout-minutes: 10
-#        if: success()
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
