@@ -1,4 +1,4 @@
-name: Tests
+name: PR
 
 on:
   pull_request:
@@ -31,5 +31,7 @@ jobs:
         uses: actions/github@v1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEBUG: true
+          DEBUG_PAYLOAD: true
         with:
           args: comment "Hello from PR"
