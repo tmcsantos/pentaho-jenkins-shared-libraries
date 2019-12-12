@@ -27,6 +27,15 @@ jobs:
         with:
           args: package
 
+      - name: Comment PR
+        uses: actions/github@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEBUG: true
+          DEBUG_PAYLOAD: true
+        with:
+          args: comment "Hello from PR"
+
 # Not working with cache enabled ??? getting permission denied
 ## [error]The template is not valid. Access to the path '/home/runner/work/pentaho-jenkins-shared-libraries/pentaho-jenkins-shared-libraries/.sonar/cache/b85e79af43c5fd9d871f67c00ce3c18d/sonar-java-plugin.jar_unzip' is denied.,Permission denied
 # Also sonar cloud doesn't support groovy so is just a waist of time !

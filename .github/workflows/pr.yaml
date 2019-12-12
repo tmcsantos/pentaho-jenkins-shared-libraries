@@ -1,12 +1,10 @@
 name: PR
 
 on:
-  pull_request_review_comment:
-    branches:
-      - github-actions
   pull_request:
     branches:
       - github-actions
+    types: [assigned, opened, synchronize, reopened, edited, labeled, unlabeled]
 
 jobs:
   test:
