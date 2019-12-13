@@ -36,7 +36,7 @@ class TestFileUtils extends BasePipelineSpecification {
 
     where:
       targetFolder                  | destination                                      || readable
-      '../../test/resources'        | 'target/something-' + System.currentTimeMillis() || true
+      '../../test/resources'        | 'target/something-' + System.currentTimeMillis() || false
       'non-existing-test/resources' | 'target'                                         || false
   }
 
