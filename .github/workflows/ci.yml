@@ -9,10 +9,11 @@ on:
       - github-actions
     types: [assigned, opened, synchronize, reopened, edited, labeled, unlabeled]
 
+
 jobs:
   test:
     name: Test wingman like
-    runs-on: ubuntu-latest
+    runs-on: self-hosted #ubuntu-latest
 
     steps:
       - name: Checkout
@@ -49,5 +50,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEBUG: true
           DEBUG_PAYLOAD: true
+          JOB_CONTEXT: ${{ toJson(job) }}
         with:
-          args: comment "Hello from PR"
+          args: comment "job status"
