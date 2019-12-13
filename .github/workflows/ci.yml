@@ -37,3 +37,13 @@ jobs:
 #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 #        with:
 #          args: sonar:sonar
+
+      - name: Comment PR
+        uses: actions/github@v1.0.0
+        if: github.event_name == "pull_request"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEBUG: true
+          DEBUG_PAYLOAD: true
+        with:
+          args: comment "Hello from PR"

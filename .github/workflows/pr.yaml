@@ -3,7 +3,7 @@ name: PR
 on:
   pull_request:
     branches:
-      - github-actions
+      - github-actions2
     types: [assigned, opened, synchronize, reopened, edited, labeled, unlabeled]
 
 jobs:
