@@ -32,7 +32,7 @@ class TestFileUtils extends BasePipelineSpecification {
       FileUtils.createSymLink(destination, targetFolder, 'srcAtTargetLink')
 
     then:
-      Files.isSymbolicLink(result) && Files.isReadable(result) == readable
+      (Files.isSymbolicLink(result) && Files.isReadable(result)) == readable
 
     where:
       targetFolder                  | destination                                      || readable
