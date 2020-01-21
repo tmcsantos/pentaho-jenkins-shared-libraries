@@ -19,13 +19,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Cache Dependencies
-        uses: actions/cache@v1
-        with:
-          path: .m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
+      #- name: Cache Dependencies
+      #  uses: actions/cache@v1
+      #  with:
+      #    path: .m2/repository
+      #    key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+      #    restore-keys: |
+      #      ${{ runner.os }}-maven-
 
       - name: Build
         uses: ./.github/actions/maven
@@ -43,13 +43,13 @@ jobs:
 #        with:
 #          args: sonar:sonar
 
-      - name: Comment PR
-        uses: actions/github@v1.0.0
-        if: github.event_name == 'pull_request'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEBUG: true
-          DEBUG_PAYLOAD: true
-          JOB_CONTEXT: ${{ toJson(job) }}
-        with:
-          args: comment "job status"
+      #- name: Comment PR
+      #  uses: actions/github@v1.0.0
+      #  if: github.event_name == 'pull_request'
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #    DEBUG: true
+      #    DEBUG_PAYLOAD: true
+      #    JOB_CONTEXT: ${{ toJson(job) }}
+      #  with:
+      #    args: comment "job status"
