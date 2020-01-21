@@ -30,7 +30,7 @@ jobs:
       - name: Build
         uses: ./.github/actions/maven
         with:
-          args: mvn help:system 
+          args: help:system 
           #args: package -DskipTests
 
 # Not working with cache enabled ??? getting permission denied
